@@ -1,0 +1,2 @@
+mod equirectangular;
+mod isometric;

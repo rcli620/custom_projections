@@ -752,6 +752,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy_flycam"
+version = "0.18.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2edc6e0bffe39013fa213848e70c7fa4a1266e8b3f853d2f07aa5fb888cc61d7"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "bevy_gilrs"
 version = "0.18.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2170,6 +2179,7 @@ name = "custom_projections"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "bevy_flycam",
 ]
 
 [[package]]

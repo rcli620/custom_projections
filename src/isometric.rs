@@ -1,5 +1,6 @@
-use bevy::camera::{CameraProjection, SubCameraView};
+use bevy::camera::{CameraProjection, Projection, SubCameraView};
 use bevy::math::{Mat4, Vec3A};
+use bevy::prelude::default;
 
 #[derive(Debug, Clone)]
 pub struct IsometricProjection {
@@ -7,6 +8,17 @@ pub struct IsometricProjection {
     pub aspect_ratio: f32,
     pub near: f32,
     pub far: f32,
+}
+
+impl Default for IsometricProjection {
+    fn default() -> Self {
+        Self {
+            scale: 5.0,
+            aspect_ratio: 1.0,
+            near: 0.1,
+            far: 1000.0,
+        }
+    }
 }
 
 impl CameraProjection for IsometricProjection {
@@ -44,5 +56,14 @@ impl CameraProjection for IsometricProjection {
             Vec3A::new(-w,  h, z_far),
             Vec3A::new(-w, -h, z_far),
         ]
+    }
+}
+
+impl IsometricProjection {
+    pub fn projection(scale: f32) -> Projection {
+        Projection::custom(Self {
+            scale,
+            ..default()
+        })
     }
 }
